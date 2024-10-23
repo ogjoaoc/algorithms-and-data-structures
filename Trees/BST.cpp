@@ -91,16 +91,19 @@ Node* remove(Node* raiz, int val) {
 
         }
 
+        Node* last = raiz->right;
+        
+        while(last != NULL && last->left != NULL) {
+            last = last->left;
+        }
+
+        raiz->val = last->val;
+        raiz->right = remove(raiz->right, last->val);
+
+
     }
 
-    Node* last = raiz->right;
-    
-    while(last != NULL && last->left != NULL) {
-        last = last->left;
-    }
-
-    raiz->val = last->val;
-    raiz->right = remove(raiz->right, last->val);
+    return raiz;
 
 }
 
@@ -117,6 +120,16 @@ int main() {
     } else {
 
         cout << ":(\n";
+
+    }
+
+    if(remove(raiz, 5) != NULL) {
+
+        cout << "Removi o elemento.\n";
+
+        cout << "Raiz = " << raiz->val << '\n';
+        cout << "Esquerda = " << raiz->left << '\n';
+        cout << "Direita = " << raiz->right << '\n';
 
     }
 
