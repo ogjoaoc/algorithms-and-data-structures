@@ -4,6 +4,7 @@ BST: implementação em C++ curta para competições.
 - Inserção.
 - Remoção.
 - Busca.
+- Complexidade: O(log(n)) -> N elementos da árvore.
 */
 
 #include <bits/stdc++.h>
