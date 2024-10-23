@@ -4,6 +4,7 @@ BST: implementação em C++ curta para competições.
 - Inserção.
 - Remoção.
 - Busca.
+- Travessia prefixa, infixa e pósfixa.
 - Complexidade: O(log(n)) -> N elementos da árvore.
 */
 
@@ -108,6 +109,42 @@ Node* remove(Node* raiz, int val) {
 
 }
 
+void preOrder(Node* raiz) {
+
+    if(raiz == NULL) return;
+
+    cout << raiz->val << ' ';
+
+    preOrder(raiz->left);
+    
+    preOrder(raiz->right);
+
+}
+
+void inOrder(Node* raiz) {
+
+    if(raiz == NULL) return;
+
+    inOrder(raiz->left);
+
+    cout << raiz->val << ' ';
+
+    inOrder(raiz->right);
+
+}
+
+void posOrder(Node* raiz) {
+
+    if(raiz == NULL) return;
+
+    posOrder(raiz->left);
+
+    posOrder(raiz->right);
+
+    cout << raiz->val << ' ';
+
+}
+
 int main() {
 
     Node* raiz = new Node(10);
@@ -133,6 +170,20 @@ int main() {
         cout << "Direita = " << raiz->right << '\n';
 
     }
+
+    insert(raiz, 3);
+    insert(raiz, 5);
+    insert(raiz, 2);
+    insert(raiz, 9);
+
+    preOrder(raiz);
+    cout << '\n';
+
+    inOrder(raiz);
+    cout << '\n';
+
+    posOrder(raiz);
+    cout << '\n';
 
     return 0;
 }
