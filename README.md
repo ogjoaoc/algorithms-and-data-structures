@@ -1,3 +1,2 @@
-#Library
-My own library with algorithms and data structures.
+# Library
 Main languages: C, C++ and Python.
